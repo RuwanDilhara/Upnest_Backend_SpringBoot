@@ -7,4 +7,5 @@ import java.util.List;
 public interface UserService {
     List<User> getUsers ();
     User register (User user);
+    String verify(User user);
 }
