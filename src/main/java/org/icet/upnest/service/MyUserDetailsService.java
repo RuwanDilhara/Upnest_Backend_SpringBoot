@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class MyUserDetailsService implements UserDetailsService {
 
     final UserRepository repository;
-    ModelMapper mapper = new ModelMapper();
+    final ModelMapper mapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

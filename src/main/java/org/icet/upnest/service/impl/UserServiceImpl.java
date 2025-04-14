@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     final JWTService service;
     final ModelMapper mapper;
     final AuthenticationManager authManager;
-    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    final BCryptPasswordEncoder encoder;
 
     @Override
     public List<User> getUsers() {
