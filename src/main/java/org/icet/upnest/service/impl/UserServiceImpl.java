@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     final UserRepository repository;
     final JWTService service;
-    final ModelMapper mapper = new ModelMapper();
+    final ModelMapper mapper;
     final AuthenticationManager authManager;
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     public String verify(User user) {
         Authentication authenticate = authManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         if (authenticate.isAuthenticated())
-            return service.generateToken();
+            return service.generateToken(user.getUsername());
         else return "fail";
     }
 }
