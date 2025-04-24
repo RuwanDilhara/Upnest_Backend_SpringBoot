@@ -1,6 +1,7 @@
 package org.icet.upnest.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,18 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Email
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
-    private List<PostEntity> postEntityList;
+    @OneToMany(mappedBy = "user" )
+    private List<PostEntity> posts;
 
 
 

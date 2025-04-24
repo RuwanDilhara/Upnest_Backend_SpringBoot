@@ -1,6 +1,8 @@
 package org.icet.upnest.dto;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,4 +25,6 @@ public class Post {
 
     @NotBlank(message = "cant not be null ")
     private LocalDate createAt;
+
+    private User user;
 }

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.icet.upnest.entity.PostEntity;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -11,6 +14,8 @@ import lombok.ToString;
 @ToString
 public class User {
     private Integer userId;
+    private String email;
     private String username;
     private String password;
+
 }

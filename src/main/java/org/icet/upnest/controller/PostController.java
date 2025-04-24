@@ -54,7 +54,7 @@ public class PostController {
         return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 
-    @PostMapping("/post/save")
+    @PostMapping("/save")
     public ResponseEntity<Post> savePost(@RequestBody Post post) {
         Post savePost = service.save(post);
         if (savePost != null) {
@@ -63,7 +63,7 @@ public class PostController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping("/post/updateById/{id}")
+    @PostMapping("/updateById/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable Integer id, @RequestBody Post post) {
         Post existingPost = service.getPostByPostId(id);
         if (existingPost != null) {
@@ -73,7 +73,7 @@ public class PostController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/post/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<Boolean> deletePost(@PathVariable Integer id) {
         Post existingPost = service.getPostByPostId(id);
         if (existingPost != null) {

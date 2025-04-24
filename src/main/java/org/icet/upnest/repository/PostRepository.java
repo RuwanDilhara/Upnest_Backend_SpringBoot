@@ -3,9 +3,10 @@ package org.icet.upnest.repository;
 import org.icet.upnest.dto.Post;
 import org.icet.upnest.entity.PostEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface PostRepository extends JpaRepository<PostEntity ,Integer> {
-    List<Post> findByUserId(Integer userId);
+    List<PostEntity> findByUserId(Integer userId);
 }
