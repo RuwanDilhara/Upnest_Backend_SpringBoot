@@ -3,7 +3,7 @@ package org.icet.upnest.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.icet.upnest.dto.Post;
 import org.icet.upnest.entity.PostEntity;
-import org.icet.upnest.repository.PostRepository;
+import org.icet.upnest.repository.feed.PostRepository;
 import org.icet.upnest.service.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -36,7 +36,8 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getPostByCreateDate(LocalDate date) {
-        return List.of();
+        return postRepository.findByCreateAt(date).stream().map(postEntity ->
+                mapper.map(postEntity,Post.class)).toList();
     }
 
     @Override
@@ -52,7 +53,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePostById(Integer id) {
+    public boolean deletePostById(Integer id) {
         postRepository.deleteById(id);
+        return getPostByPostId(id)==null;
     }
 }
