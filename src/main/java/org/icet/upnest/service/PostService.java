@@ -12,5 +12,5 @@ public interface PostService {
     List<Post> getPostByCreateDate(LocalDate date);
     Post save(Post post);
     Post updatePost(Post post);
-    void deletePostById(Integer id);
+    boolean deletePostById(Integer id);
 }
