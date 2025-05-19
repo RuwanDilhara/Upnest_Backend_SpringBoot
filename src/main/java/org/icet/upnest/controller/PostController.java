@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequiredArgsConstructor
-@RequestMapping("api/v1/posts")
+@RequestMapping("api/v1/feed/posts")
 public class PostController {
 
     final PostService service;
@@ -24,7 +24,7 @@ public class PostController {
         if (postList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(postList, HttpStatus.OK);
+        return ResponseEntity.ok(postList);
     }
 
     @GetMapping("/getPostById/{id}")
@@ -77,7 +77,7 @@ public class PostController {
     public ResponseEntity<Boolean> deletePost(@PathVariable Integer id) {
         Post existingPost = service.getPostByPostId(id);
         if (existingPost != null) {
-            service.deletePostById(id);
+            boolean b = service.deletePostById(id);
             return new ResponseEntity<>(true,HttpStatus.OK);
         }
         return new ResponseEntity<>(false,HttpStatus.NOT_FOUND);
