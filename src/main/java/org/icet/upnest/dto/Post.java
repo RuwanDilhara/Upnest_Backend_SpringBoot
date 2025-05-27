@@ -1,30 +1,33 @@
 package org.icet.upnest.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+
 public class Post {
+
+    @NotBlank(message = "can not be null ")
     private Integer id;
 
-    @NotBlank(message = "cant not be null ")
+    @NotBlank(message = "can not be null ")
     private String title;
 
-    @NotBlank(message = "cant not be null ")
+    @NotBlank(message = "can not be null ")
     private String mediaURL;
 
-    @NotBlank(message = "cant not be null ")
+    @NotBlank(message = "can not be null ")
     private LocalDate createAt;
 
-    private User user;
+    @NotBlank(message = "can not be null ")
+    private String category;
+
+    @NotBlank(message = "can not be null")
+    private boolean isPrivate;
+
 }
