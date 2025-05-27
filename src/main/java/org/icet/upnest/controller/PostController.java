@@ -45,14 +45,14 @@ public class PostController {
         return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 
-    @GetMapping("/getPostByUserId/{id}")
-    public ResponseEntity<List<Post>> getPostsByUserId(@PathVariable Integer id) {
-        List<Post> postList = service.getPostByUserId(id);
-        if (postList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(postList, HttpStatus.OK);
-    }
+//    @GetMapping("/getPostByUserId/{id}")
+//    public ResponseEntity<List<Post>> getPostsByUserId(@PathVariable Integer id) {
+//        List<Post> postList = service.getPostByUserId(id);
+//        if (postList.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<>(postList, HttpStatus.OK);
+//    }
 
     @PostMapping("/save")
     public ResponseEntity<Post> savePost(@RequestBody Post post) {

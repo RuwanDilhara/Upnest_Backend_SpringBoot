@@ -2,7 +2,6 @@ package org.icet.upnest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.icet.upnest.dto.User;
 
 import java.time.LocalDate;
 
@@ -26,8 +25,5 @@ public class PostEntity {
     @Column(nullable = false)
     private LocalDate createAt;
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private UserEntity user;
 
 }

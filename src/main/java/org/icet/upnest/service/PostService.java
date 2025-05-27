@@ -8,7 +8,7 @@ import java.util.List;
 public interface PostService {
     List<Post> getAll();
     Post getPostByPostId(Integer id);
-    List<Post> getPostByUserId(Integer userId);
+//    List<Post> getPostByUserId(Integer userId);
     List<Post> getPostByCreateDate(LocalDate date);
     Post save(Post post);
     Post updatePost(Post post);

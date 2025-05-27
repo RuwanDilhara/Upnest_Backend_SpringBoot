@@ -28,11 +28,11 @@ public class PostServiceImpl implements PostService {
         return mapper.map(postRepository.findById(id).orElse(null), Post.class);
     }
 
-    @Override
-    public List<Post> getPostByUserId(Integer userId) {
-        return postRepository.findByUserId(userId).stream().map(postEntity ->
-                mapper.map(postEntity,Post.class)).toList();
-    }
+//    @Override
+//    public List<Post> getPostByUserId(Integer userId) {
+//        return postRepository.findByUserId(userId).stream().map(postEntity ->
+//                mapper.map(postEntity,Post.class)).toList();
+//    }
 
     @Override
     public List<Post> getPostByCreateDate(LocalDate date) {
