@@ -1,16 +1,16 @@
 package org.icet.upnest.service;
 
-import org.icet.upnest.dto.Post;
+import org.icet.upnest.dto.feed.PostDTO;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface PostService {
-    List<Post> getAll();
-    Post getPostByPostId(Integer id);
+    List<PostDTO> getAll();
+    PostDTO getPostByPostId(Integer id);
 //    List<Post> getPostByUserId(Integer userId);
-    List<Post> getPostByCreateDate(LocalDate date);
-    Post save(Post post);
-    Post updatePost(Post post);
+    List<PostDTO> getPostByCreateDate(LocalDate date);
+    PostDTO save(PostDTO post);
+    PostDTO updatePost(PostDTO post);
     boolean deletePostById(Integer id);
 }
